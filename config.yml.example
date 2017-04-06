@@ -1,0 +1,14 @@
+wordpress:
+    link: LINK
+    user: USER
+    password: PASSWORD
+    # http://v2.wp-api.org/reference/posts/#schema-author
+    categories: CATEGORIES
+    author: AUTHOR
+    status: STATUS
+baidu:
+    link: LINK
+    appid: APPID
+    secretKey: SECRETKEY
+other:
+    debug: true

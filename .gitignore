@@ -1,3 +1,4 @@
 .idea
 *.pyc
 sftp*
+config.yml
