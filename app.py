@@ -30,7 +30,6 @@ class App:
         # parsed_json = json.loads(r.content.decode('utf-8'))
         return '失败'
 
-
-crawler = App('https://movie.douban.com/review/8456179/')
-# data = crawler.crawl()
-print(crawler.send())
+# crawler = App('https://movie.douban.com/review/8456179/')
+# # data = crawler.crawl()
+# print(crawler.send())

@@ -33,3 +33,10 @@ cp config.yml.example config.yml
 ```
 python3 app.py
 ```
+
+## 部署
+
+```
+pip3 install gunicorn
+pip3 install falcon
+```
