@@ -7,6 +7,7 @@ wordpress:
     author: AUTHOR
     status: STATUS
 baidu:
+    # http://api.fanyi.baidu.com/api/trans/product/index
     link: LINK
     appid: APPID
     secretKey: SECRETKEY

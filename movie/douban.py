@@ -3,7 +3,6 @@
 from bs4 import BeautifulSoup
 import requests
 from common.translate import Translate
-from common.helper import Helper
 from movie.imdb import Imdb
 
 
@@ -12,17 +11,21 @@ class Douban:
     def get_post(link):
         page = requests.get(link)
         soup = BeautifulSoup(page.content, "lxml")
-        content = soup.find('div', 'review-content').get_text()
+        content = soup.find('div', 'review-content')
+
+        content = "".join(str(item) for item in content.contents)
         title = soup.find('span', {'property': 'v:summary'}).get_text()
         subject_link = soup.find('div', 'subject-title').a.get('href')
         # 详情页
         imdb_link = Douban.get_subject(subject_link)
+
         # 获取 IMDB 详情
         imdb_subject = Imdb.get_subject(imdb_link)
         en_title = Translate.baidu(title)
         en_content = Translate.baidu(content)
-        body = {'title': en_title, 'content': en_content}
-        return Helper.merge_two_dicts(imdb_subject, body)
+        image = '<img class="size-medium" src="%s" alt="%s" width="253" height="400">' % (imdb_subject['movie_image'], imdb_subject['movie_title'])
+        body = {'title': en_title + '(%s)' % imdb_subject['movie_title'], 'content': image + ' ' + en_content}
+        return body
 
     @staticmethod
     def get_subject(link):

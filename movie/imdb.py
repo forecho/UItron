@@ -15,4 +15,4 @@ class Imdb:
         for tag in soup.find('div', 'title_wrapper').findAll('span', 'itemprop'):
             tags.append(tag.get_text())
         # return {'title': title, 'image': image, 'tags': tags}
-        return {'title': title, 'image': image}
+        return {'movie_title': title, 'movie_image': image}
