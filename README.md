@@ -8,13 +8,25 @@
 
 ```
 sudo curl https://bootstrap.pypa.io/get-pip.py | python3
+```
+
+ubuntu
+
+```
 sudo apt-get install libxml2-dev libxslt-dev python-dev
 sudo apt-get install python3-lxml
+```
+
+or centos
+```
+sudo yum install libxslt-devel libxml2-devel
+sudo yum install python-lxml
 ```
 
 包
 
 ```
+sudo pip3 install lxml
 sudo pip3 install requests
 sudo pip3 install beautifulsoup4
 sudo pip3 install pyyaml
