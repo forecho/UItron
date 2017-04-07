@@ -28,7 +28,8 @@ class CrawlerResource(object):
             crawl = App(text)
             print(crawl.send())
             resp.body = json.dumps({"text": "发布成功"})
-        except Exception:
+        except Exception as e:
+            print('except:', e)
             resp.body = json.dumps({"text": "操作失败"})
 
 
