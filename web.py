@@ -24,7 +24,8 @@ class CrawlerResource(object):
         try:
             raw_body = urllib.parse.parse_qsl(body.decode('utf8'))
             dict_body = dict(raw_body)
-            crawl = App(dict_body['text'])
+            text = dict_body['text'].split(':', 1)[1]
+            crawl = App(text)
             print(crawl.send())
             resp.body = json.dumps({"text": "发布成功"})
         except Exception as e:
