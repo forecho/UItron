@@ -37,6 +37,6 @@ python3 app.py
 ## 部署
 
 ```
-pip3 install gunicorn
-pip3 install falcon
+sudo pip3 install gunicorn
+sudo pip3 install falcon
 ```
