@@ -16,19 +16,20 @@ class App:
 
     def send(self):
         data = self.crawl()
-        wordpress = Helper.config('wordpress')
-
-        meta_data = {
-            'categories': wordpress['categories'],
-            'author': wordpress['author'],
-            'status': wordpress['status']
-        }
-        payload = Helper.merge_two_dicts(meta_data, data)
-        r = requests.post(wordpress['link'], data=payload, auth=HTTPBasicAuth(wordpress['user'], wordpress['password']))
-        if r.status_code < 300:
-            return '成功'
-        # parsed_json = json.loads(r.content.decode('utf-8'))
-        return '失败'
+        if data:
+            wordpress = Helper.config('wordpress')
+            meta_data = {
+                'categories': wordpress['categories'],
+                'author': wordpress['author'],
+                'status': wordpress['status']
+            }
+            payload = Helper.merge_two_dicts(meta_data, data)
+            r = requests.post(wordpress['link'], data=payload, auth=HTTPBasicAuth(wordpress['user'], wordpress['password']))
+            if r.status_code < 300:
+                return '成功'
+            # parsed_json = json.loads(r.content.decode('utf-8'))
+            return '失败'
+        return '链接不存在'
 
     def cycle(self):
         pass
