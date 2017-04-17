@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-import yaml
+import yaml, os
 
 
 class Helper:
@@ -16,7 +16,7 @@ class Helper:
 
     @staticmethod
     def config(key):
-        with open("config.yml", 'r') as ymlfile:
+        with open(os.getcwd() + "/config.yml", 'r') as ymlfile:
             cfg = yaml.load(ymlfile)
         try:
             value = cfg[key]
